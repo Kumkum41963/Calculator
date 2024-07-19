@@ -1,0 +1,72 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    font-family: 'Kalam', cursive;
+    outline: 2px solid red;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #227171, rgb(0 0 0));
+}
+
+.grid {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    /*  It ensures that the element's height is at least a certain value, but it can grow taller if its content requires more space.  */
+    min-height: 100vh;
+    grid-template-columns: repeat(4,100px);
+    /* minmax(min, max) */
+    /* auto :: If the content is small, the column will be at least 100px wide. If the content is larger, the column will grow to fit the content. */
+    grid-template-rows: minmax(120px , auto) repeat(5,100px);
+}
+
+/* child selector */
+.grid > button{
+    cursor:pointer ;
+    font-size: 2rem;
+    border: 1px solid white;
+    background-color:black;
+    color: white;
+    /* border-radius: 0.2rem; */
+}
+
+.grid > button:hover{
+    background-colorr:rgb(141, 180, 214)0;
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+/* grid-cloumn : grid-column: This property is a shorthand for grid-column-start and grid-column-end. It defines which columns a grid item will start and end on. */
+/* 1/-1 : we start from col 1 and end at col last */
+.output {
+    grid-column: 1/-1;
+    background-color: rgb(141, 180, 214);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    /* flex-direction: column;: Stacks flex items vertically from top to bottom. */
+    /* flex-direction: row;: Arranges flex items horizontally from left to right. */
+    flex-direction: column;
+    padding: 10px;
+    /* word-wrap: break-word; breaks long words at appropriate points to ensure the word fits within the container without overflowing. */
+    word-wrap: break-word;
+    /* word-break: break-all; breaks words at any character, which can result in breaks that appear mid-word and can look less natural.
+ */
+    word-break: break-all;
+}
+
+.previous-operand{
+    color: rgb(64, 114, 157);
+    font-size: 1.5rem;
+}
+
+.current-operand{
+    color: rgb(9, 13, 2);
+    font-size: 2.5rem;
+}
