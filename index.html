@@ -9,34 +9,36 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    
 </head>
 
 <body>
+    <!-- data-attributes is used to distinguish script classes from style classes -->
     <div class="grid">
         <div class="output">
-            <div class="previous-operand">vcgdfge</div>
-            <div class="current-operand">dgrtdfg</div>
+            <div data-previous-operand class="previous-operand"></div>
+            <div data-current-operand class="current-operand"></div>
         </div>  
-        <button class="span-two">AC</button>
-        <button class="span-one">DEL</button>
-        <button class="span-one">÷</button>
-        <button class="span-one">1</button>
-        <button class="span-one">2</button>
-        <button class="span-one">3</button>
-        <button class="span-one">*</button>
-        <button class="span-one">4</button>
-        <button class="span-one">5</button>
-        <button class="span-one">6</button>
-        <button class="span-one">+</button>
-        <button class="span-one">7</button>
-        <button class="span-one">8</button>
-        <button class="span-one">9</button>
-        <button class="span-one">-</button>
-        <button class="span-one">.</button>
-        <button class="span-one">0</button>
-        <button class="span-two">=</button>
+        <button data-all-clear class="span-two">AC</button>
+        <button data-delete class="span-one">DEL</button>
+        <button data-operation class="span-one">÷</button>
+        <button data-number class="span-one">1</button>
+        <button data-number class="span-one">2</button>
+        <button data-number class="span-one">3</button>
+        <button data-operation class="span-one">*</button>
+        <button data-number class="span-one">4</button>
+        <button data-number class="span-one">5</button>
+        <button data-number class="span-one">6</button>
+        <button data-operation class="span-one">+</button>
+        <button data-number class="span-one">7</button>
+        <button data-number class="span-one">8</button>
+        <button data-number class="span-one">9</button>
+        <button data-operation class="span-one">-</button>
+        <button data-number class="span-one">.</button>
+        <button data-number class="span-one">0</button>
+        <button data-equals class="span-two">=</button>
     </div>
-    <script src="script.js"></script>
+    <script  src="script.js"></script>
 </body>
 
 </html>
