@@ -1,4 +1,5 @@
 class Calculator {
+
     constructor(previousOperandTextElement, currentOperandTextElement) {
         this.previousOperandTextElement = previousOperandTextElement;
         this.currentOperandTextElement = currentOperandTextElement;
@@ -97,19 +98,32 @@ class Calculator {
     // ab commas bhi display krne h hume toh 
     getDisplayNumber(number) {
         // since at period this number will start acting weirdly so we need to do smthn abt it
-        
+        // we change to string since we are not sure ki vo string hya phir number
+        const stringNumber = number.toString();
         // we will beautify this number with commas
         // convert str -> num
-        const floatNumber = parseFloat(number);
-        // agar num nhi h to
-        if (isNaN(floatNumber)) {
-            return;
+        // integer and decimal value ko thoda alag se lelo split krke
+        const integerDigits = parseFloat(stringNumber.split('.'[0]));
+        const decimalDigits = stringNumber.split('.'[1]);
+        let integerDisplay;
+        // agar num nhi h to mat display karo
+        if (isNaN(integerDigits)) {
+            integerDisplay = '';
         }
-        // toLocaleString for Numbers
-        // Purpose: To format numbers according to locale-specific conventions such as grouping separators (e.g., commas or periods) and decimal points.
-        // ye ab khud hi ',' lagake number dedegi
-        return floatNumber.toLocaleString('en');
+        // vrna integer display kar do
+        else {
+            integerDisplay = integerDigits.toLocaleString('en', { maximumFractionDigits: 0 });
+        }
+        // agar decimal ho to aese return kardo
+        if (decimalDigits != null) {
+            return `${integerDisplay}.${decimalDigits}`;
+        }
+        // vrna sirf integer hi display kardo
+        else {
+            return integerDisplay;
+        }
     }
+
     // final result
     updateDisplay() {
         // change the deafault to users clicked number
@@ -120,7 +134,9 @@ class Calculator {
             // updating previous=current value
             this.previousOperandTextElement.innerText = `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`;
         }
-
+        else {
+            this.previousOperandTextElement.innerText = "";
+        }
     }
 }
 
