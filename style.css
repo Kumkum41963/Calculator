@@ -3,7 +3,6 @@
 *::before {
     box-sizing: border-box;
     font-family: 'Kalam', cursive;
-    outline: 2px solid red;
 }
 
 body {
@@ -22,6 +21,7 @@ body {
     /* minmax(min, max) */
     /* auto :: If the content is small, the column will be at least 100px wide. If the content is larger, the column will grow to fit the content. */
     grid-template-rows: minmax(120px , auto) repeat(5,100px);
+    border-radius: 2%;
 }
 
 /* child selector */
@@ -31,7 +31,7 @@ body {
     border: 1px solid white;
     background-color:black;
     color: white;
-    /* border-radius: 0.2rem; */
+    border-radius: 0.3rem;
 }
 
 .grid > button:hover{
@@ -45,6 +45,7 @@ body {
 /* grid-cloumn : grid-column: This property is a shorthand for grid-column-start and grid-column-end. It defines which columns a grid item will start and end on. */
 /* 1/-1 : we start from col 1 and end at col last */
 .output {
+    border-radius: 0.3rem;
     grid-column: 1/-1;
     background-color: rgb(141, 180, 214);
     display: flex;
