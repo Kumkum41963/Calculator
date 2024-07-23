@@ -103,8 +103,10 @@ class Calculator {
         // we will beautify this number with commas
         // convert str -> num
         // integer and decimal value ko thoda alag se lelo split krke
-        const integerDigits = parseFloat(stringNumber.split('.'[0]));
-        const decimalDigits = stringNumber.split('.'[1]);
+
+        // stringNumber.split('.'): This splits the stringNumber at the decimal point . into an array of two parts: the integer part and the decimal part.
+        const integerDigits = parseFloat(stringNumber.split('.')[0]);
+        const decimalDigits = stringNumber.split('.')[1];
         let integerDisplay;
         // agar num nhi h to mat display karo
         if (isNaN(integerDigits)) {
@@ -112,6 +114,7 @@ class Calculator {
         }
         // vrna integer display kar do
         else {
+            // .toLocaleString('en', { maximumFractionDigits: 0 }): This method converts the number to a string, formatted according to the specified locale and options.
             integerDisplay = integerDigits.toLocaleString('en', { maximumFractionDigits: 0 });
         }
         // agar decimal ho to aese return kardo
@@ -128,6 +131,7 @@ class Calculator {
     updateDisplay() {
         // change the deafault to users clicked number
         // div where it will be displayed
+        // bss ab getDisplayNumber jo bhi de vahi display krne ka h
         this.currentOperandTextElement.innerText = this.getDisplayNumber(this.currentOperand);
         // abhi display mien operation displayed nhi h sundar nhi h 
         if (this.operation !== null) {
